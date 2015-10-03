@@ -1,0 +1,61 @@
+<div class="page-header">
+  <h1>Houses for Sale </h1>
+</div>
+
+<div>
+  <h2><%= pluralize(@houses.count, "Listing") %></h2>
+</div>
+
+<%
+col_sm_size = 6
+col_md_size = 3
+col_per_row = 12 / col_md_size
+rows = (@houses.count / col_per_row.to_f).ceil
+house_index = 0
+%>
+
+<% rows.times do %>
+<div class="row">
+  <% col_per_row.times do %>
+  <div class="col-sm-<%= col_sm_size.to_s %> col-md-<%= col_md_size.to_s %>">
+    <% if house_index < @houses.count
+          house = @houses[house_index] %>
+    <div class="thumbnail">
+      <%= link_to(
+          image_tag("property_placeholder.jpg", alt: "house placeholder image"),
+          image_path("property_placeholder.jpg")
+      ) %>
+      <div class="caption">
+        <p class="h4"><%= house.name %></p>
+        <p class="h5"><%= house.address %></p>
+        <p class="clearfix">
+          <span class="pull-left">
+            <strong><%= number_to_currency(house.price, precision: 0) %></strong>
+          </span>
+          <span class="pull-right">
+            <%= house.square_feet %> sq ft
+          </span>
+        </p>
+        <p class="clearfix">
+          <span class="pull-left">
+          <% if house.beds >= 1 %>
+            <%= pluralize(house.beds, "bed") %>
+          <% end %>
+          </span>
+          <span class="pull-right">
+          <% if house.full_baths >= 1 %>
+            <%= pluralize(house.full_baths, "full bath") %>
+          <% end %>
+          <% if house.half_baths >= 1 %>
+            <%= pluralize(house.half_baths, "half bath") %>
+          <% end %>
+          </span>
+        </p>
+      </div>
+    </div>
+    <% house_index += 1
+    end %>
+  </div>
+  <% end %>
+</div>
+<% end %>
