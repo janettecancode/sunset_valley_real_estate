@@ -1,25 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: MyString
-  address: MyString
-  description: MyText
-  unfurnished_price: 9.99
-  furnished_price: 9.99
-  square_feet: 1
-  beds: 1
-  full_baths: 1
+happy_home:
+  name: Happy Home
+  address: 123 Cheerful Way
+  description: This is a very happy home to live in.
+  price: 150000.00
+  square_feet: 1600
+  beds: 4
+  full_baths: 2
   half_baths: 1
-  floors: 1
-
-two:
-  name: MyString
-  address: MyString
-  description: MyText
-  unfurnished_price: 9.99
-  furnished_price: 9.99
-  square_feet: 1
-  beds: 1
-  full_baths: 1
-  half_baths: 1
-  floors: 1
+  floors: 2

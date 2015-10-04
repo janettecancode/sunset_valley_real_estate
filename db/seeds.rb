@@ -20,7 +20,7 @@ House.create!(
     Skyborough neighborhood, welcoming guests with an inviting,
     corner-facing porch.
   },
-  price: 471050,
+  price: 471050.00,
   square_feet: 900,
   beds: 2,
   full_baths: 2,
@@ -36,7 +36,7 @@ House.create!(
     flair. The backyard includes a grove of pine trees and a massive
     deck.
   },
-  price: 442050,
+  price: 442050.00,
   square_feet: 1200,
   beds: 2,
   full_baths: 1,
@@ -51,7 +51,7 @@ House.create!(
     When you have reached that stage of life when suburban living has
     lost its appeal, it is time to move up to this stunning abode.
   },
-  price: 614910,
+  price: 614910.00,
   square_feet: 1200,
   beds: 4,
   full_baths: 1,
@@ -68,7 +68,7 @@ House.create!(
     on one level, this elegant modern home with its round cupola studio
     is ideal for the artistically inclined.
   },
-  price: 589320,
+  price: 589320.00,
   square_feet: 1200,
   beds: 3,
   full_baths: 1,
@@ -85,7 +85,7 @@ House.create!(
     affordable price, it still features find craftsman style, a
     fireplace, carport and its own pond!
   },
-  price: 268380,
+  price: 268380.00,
   square_feet: 1200,
   beds: 2,
   full_baths: 1,
