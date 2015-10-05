@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1><%= @house.name %></h1>
+</div>
+
+<div>
+
+</div>
+
+<div class="row">
+  <h2 class="lead col-sm-6"><%= @house.address %></h2>
+  <p class="col-sm-6"><em><%= @house.description %></em></p>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">General Information</div>
+  <div class="panel-body">
+    <div class="row">
+      <p class="col-sm-6"><strong>Price:</strong> <%= number_to_currency(@house.price, precision: 0) %></p>
+      <p class="col-sm-6"><strong>Lot Size:</strong> <%= number_with_delimiter(@house.square_feet) %> sq ft</p>
+    </div>
+    <div class="row">
+      <p class="col-sm-6"><strong>Floors:</strong> <%= @house.floors %></p>
+      <p class="col-sm-6"><strong>Bedrooms:</strong> <%= @house.beds %></p>
+    </div>
+    <div class="row">
+      <p class="col-sm-6"><strong>Full Baths:</strong> <%= @house.half_baths %></p>
+      <p class="col-sm-6"><strong>Half Baths:</strong> <%= @house.half_baths %></p>
+    </div>
+  </div>
+</div>
+
+<%
+col_sm_size = 6
+col_md_size = 3
+col_per_row = 12 / col_md_size
+rows = (@house.images.count / col_per_row.to_f).ceil
+image_index = 0
+%>
+
+<% rows.times do %>
+<div class="row">
+  <% col_per_row.times do %>
+  <div class="col-sm-<%= col_sm_size.to_s %> col-md-<%= col_md_size.to_s %>">
+    <% if image_index < @house.images.count
+          image = @house.images[image_index] %>
+    <div class="thumbnail">
+      <%= display_image(image) %>
+    </div>
+    <% image_index += 1
+    end %>
+  </div>
+  <% end %>
+</div>
+<% end %>

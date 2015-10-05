@@ -1,18 +1,7 @@
 House.delete_all
+Image.delete_all
 
-# House.create!(
-#   name: "",
-#   address: "",
-#   description: %{},
-#   price: 0,
-#   square_feet: 0,
-#   beds: 0,
-#   full_baths: 0,
-#   half_baths: 0,
-#   floors: 0
-# )
-
-House.create!(
+house = House.create!(
   name: "Americana",
   address: "442 Skyborough Boulevard",
   description: %{
@@ -27,8 +16,9 @@ House.create!(
   half_baths: 0,
   floors: 2
 )
+house.add_images("americana", 4, 2, 4)
 
-House.create!(
+house = House.create!(
   name: "Capitola A",
   address: "15 Maywood Lane",
   description: %{
@@ -43,8 +33,9 @@ House.create!(
   half_baths: 1,
   floors: 2
 )
+house.add_images("capitola_a", 3, 2, 3)
 
-House.create!(
+house = House.create!(
   name: "Condor Museum Lofts",
   address: "280 Sunnyside Boulevard",
   description: %{
@@ -58,8 +49,9 @@ House.create!(
   half_baths: 0,
   floors: 3
 )
+house.add_images("condor_museum_lofts", 3, 3, 4)
 
-House.create!(
+house = House.create!(
   name: "Cormorant",
   address: "180 Wright Way",
   description: %{
@@ -75,8 +67,9 @@ House.create!(
   half_baths: 1,
   floors: 2
 )
+house.add_images("cormorant", 3, 2, 3)
 
-House.create!(
+house = House.create!(
   name: "Cozy Craftsman",
   address: "28 Sim Lane",
   description: %{
@@ -92,3 +85,4 @@ House.create!(
   half_baths: 1,
   floors: 2
 )
+house.add_images("cozy_craftsman", 4, 2, 3)

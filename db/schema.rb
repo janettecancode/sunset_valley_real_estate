@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003004551) do
+ActiveRecord::Schema.define(version: 20151005165425) do
 
   create_table "houses", force: true do |t|
     t.string   "name"
@@ -26,5 +26,17 @@ ActiveRecord::Schema.define(version: 20151003004551) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "images", force: true do |t|
+    t.string   "folder"
+    t.string   "file"
+    t.text     "description"
+    t.integer  "house_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["folder", "file"], name: "index_images_on_folder_and_file", unique: true
+  add_index "images", ["house_id"], name: "index_images_on_house_id"
 
 end

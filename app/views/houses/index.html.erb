@@ -21,10 +21,7 @@ house_index = 0
     <% if house_index < @houses.count
           house = @houses[house_index] %>
     <div class="thumbnail">
-      <%= link_to(
-          image_tag("house_placeholder.jpg", alt: "house placeholder image"),
-          image_path("house_placeholder.jpg")
-      ) %>
+      <%= display_main_image(house) %>
       <div class="caption">
         <p class="h4"><%= house.name %></p>
         <p class="h5"><%= house.address %></p>
@@ -33,7 +30,7 @@ house_index = 0
             <strong><%= number_to_currency(house.price, precision: 0) %></strong>
           </span>
           <span class="pull-right">
-            <%= house.square_feet %> sq ft
+            <%= number_with_delimiter(house.square_feet) %> sq ft
           </span>
         </p>
         <p class="clearfix">
