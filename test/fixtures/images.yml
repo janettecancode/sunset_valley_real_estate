@@ -1,1 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+impeccable_image:
+  folder: "happy_home"
+  file: "ext_1.jpg"
+  description: "Exterior view 1"
+  house_id: houses(:happy_home).id
