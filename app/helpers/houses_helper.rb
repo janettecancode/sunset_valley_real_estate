@@ -1,40 +1,35 @@
 module HousesHelper
-  BASE_DIR = "/house_images/"
-
   def display_main_image(house)
     image = house.main_image
 
-    if image.nil?
-      link_to_placeholder
+    if image.nil? || !image.uploaded?
+      link_to(
+        image_tag(placeholder_url, alt: placeholder_description),
+        house_path(house.id))
     else
       link_to(
-        image_tag(image_url(image), alt: image.description),
-        house_path(house.id)
-      )
+        image_tag(image.url, alt: image.description),
+        house_path(house.id))
     end
   end
 
   def display_image(image)
-    if image.nil?
-      link_to_placeholder
+    if image.nil? || !image.uploaded?
+      link_to(
+        image_tag(placeholder_url, alt: placeholder_description),
+        image_path(placeholder_url))
     else
       link_to(
-        image_tag(image_url(image), alt: image.description),
-        image_path(image_url(image))
-      )
+        image_tag(image.url, alt: image.description),
+        image_path(image.url))
     end
   end
 
-  def image_url(image)
-    BASE_DIR + image.folder + "/" + image.file
+  def placeholder_url
+    placeholder_url = "/house_images/house_placeholder.jpg"
   end
 
-  def link_to_placeholder
-    placeholder_url = BASE_DIR + "house_placeholder.jpg"
+  def placeholder_description
     placeholder_description = "house placeholder image"
-    link_to(
-      image_tag(placeholder_url, alt: placeholder_description),
-      image_path(placeholder_url)
-    )
   end
 end

@@ -19,27 +19,30 @@ class House < ActiveRecord::Base
 
   def add_images(folder, ext_count, flr_count, int_count)
     ext_count.times do |i|
-      self.images.create!(
+      image = self.images.create!(
         folder: folder,
         file: "ext_#{i + 1}.jpg",
         description: "Exterior view #{i + 1} of the house #{self.name}"
       )
+      image.destroy! if !image.uploaded?
     end
 
     flr_count.times do |i|
-      self.images.create!(
+      image = self.images.create!(
         folder: folder,
         file: "flr_#{i + 1}.jpg",
         description: "Floorplan view #{i + 1} of the house #{self.name}"
       )
+      image.destroy! if !image.uploaded?
     end
 
     int_count.times do |i|
-      self.images.create!(
+      image = self.images.create!(
         folder: folder,
         file: "int_#{i + 1}.jpg",
         description: "Interior view #{i + 1} of the house #{self.name}"
       )
+      image.destroy! if !image.uploaded?
     end
   end
 end
